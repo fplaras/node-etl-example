@@ -52,13 +52,13 @@ module.exports = {
             fs.writeFile('output/' + excecutionFileName + '/result.txt', content, 'utf8', err => {
                 if (err) {
                     console.error(err)
-                    reject(err);
+                    reject('Error in Service writeOutputFile: ' + err);
                 } else {
                     resolve(excecutionFileName);
                 }
             });
         } catch (err) {
-            reject(err);
+            reject('Error in Service writeOutputFile: ' + err);
         }
     });
 }
@@ -109,7 +109,7 @@ function readTargets(excecutionFileName) {
             csvParser.parse(content, targetsConfig);
             resolve(excecutionFileName);
         } catch (err) {
-            reject(err);
+            reject('Error in Service readTargets: ' + err);
         }
     });
 }
@@ -123,7 +123,7 @@ function readProductsAndTransform(excecutionFileName) {
             csvParser.parse(content, productsConfig);
             resolve(missingValues);
         } catch (err) {
-            reject(err);
+            reject('Error in Service readProductsAndTransform: ' + err);
         }
     });
 }

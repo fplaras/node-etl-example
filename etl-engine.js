@@ -40,14 +40,14 @@ function logFile(filePath, data, interval) {
         if (interval) {
             fs.appendFile('./output/' + filePath + '/' + filePath + '_log.txt', data + interval + 'ms\n', (err) => {
                 //error creating the error log file
-                if (err) reject('Error in readTargets: ' + err);
+                if (err) reject('Error in logFile: ' + err);
                 console.log(data + interval + 'ms');
                 resolve();
             });
         } else {
             fs.appendFile('./output/' + filePath + '/' + filePath + '_log.txt', data + '\n', (err) => {
                 //error creating the error log file
-                if (err) reject('Error in readTargets: ' + err);
+                if (err) reject('Error in logFile: ' + err);
                 resolve();
             });
         }
@@ -127,7 +127,7 @@ function startEtlPipeline() {
                 //error creating the execution log file
                 if (initializeLogFileError) {
                     //stop execution and log error
-                    reject(initializeLogFileError);
+                    reject('Error in startEtlPipeline: ' + initializeLogFileError);
                 } else {
                     //resolve and continue with execution file name created
                     resolve(executionFileName);
