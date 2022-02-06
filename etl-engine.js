@@ -119,19 +119,20 @@ function startEtlPipeline() {
             //if folder does not exist create folder
             if (!fs.existsSync('./output/' + executionFileName)) {
                 //create execution folder
-                fs.mkdirSync('./output/' + executionFileName);
-                //create execution log file
-                fs.appendFile('./output/' + executionFileName + '/' + executionFileName + "_log.txt", "Pipeline Step: Initialize Output File\n", (initializeLogFileError) => {
-                    //error creating the execution log file
-                    if (initializeLogFileError) {
-                        //stop execution and log error
-                        reject(initializeLogFileError);
-                    } else {
-                        //resolve and continue with execution file name created
-                        resolve(executionFileName);
-                    }
-                });
+                fs.mkdirSync('./output/' + executionFileName, {recursive:true}); 
             }
+
+            //create execution log file
+            fs.appendFile('./output/' + executionFileName + '/' + executionFileName + "_log.txt", "Pipeline Step: Initialize Output File\n", (initializeLogFileError) => {
+                //error creating the execution log file
+                if (initializeLogFileError) {
+                    //stop execution and log error
+                    reject(initializeLogFileError);
+                } else {
+                    //resolve and continue with execution file name created
+                    resolve(executionFileName);
+                }
+            });
         } catch (createFolderError) {
             //catch exception creating directory and log
             reject(createFolderError);
