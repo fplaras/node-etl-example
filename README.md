@@ -24,6 +24,6 @@ Papaparse
   - A folder with format `execution_{datetime}` that will contain the following
     - Execution log file with details of each step in the program and the ellapsed time.
       - This file will also contain JSON object where data has been found to be `not_available` for review.
-    - A processed products folder that contains the result of reading the original provided products.txt file after making changes to special characters.
-    - The JSON results folder containing the transformation of the data from both products.txt and targets.txt
-  - This folder will also contain a file with error log pertaining to the program exectuion with the same datatime stamp. 
+    - A processed product file that contains the result of reading the original provided products.txt file after making changes to some characters.
+    - The JSON result folder containing the transformation of the data from both products.txt and targets.txt
+  - This folder will also contain a file with error logs pertaining to the program exectuion with the same datatime stamp. 
