@@ -26,4 +26,4 @@ Papaparse
       - This file will also contain JSON object where data has been found to be `not_available` for review.
     - A processed product file that contains the result of reading the original provided products.txt file after making changes to some characters.
     - The JSON result folder containing the transformation of the data from both products.txt and targets.txt
-  - This folder will also contain a file with error logs pertaining to the program exectuion with the same datatime stamp. 
+  - This folder will also contain a file with error logs pertaining to the program execution with the same datatime stamp. 
