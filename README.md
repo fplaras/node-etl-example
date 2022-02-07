@@ -17,7 +17,7 @@ Papaparse
 
 # Instructions
 - Install dependencies `npm i`
-- Run `npm start`
+- Run `npm start` should execute the etl-engine file.
 
 # Output Example
 - Output Folder
